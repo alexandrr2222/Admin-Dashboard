@@ -1,0 +1,382 @@
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+*:not(dialog) {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+/* ############################################################## */
+:root{
+    --fontColor: rgb(251, 250, 250);
+    --fontAccent: rgb(168, 169, 179);
+    --mainColor: #F6626EFF;
+    color: var(--fontColor);
+    font-family: "Manrope";
+    font-weight: bold;
+    --darkerColor: rgb(22, 22, 31);
+    --lighterColor: #1D1D29FF;
+}
+html, body{
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.cards, .announcements, .trending{
+    background-color: var(--darkerColor);
+}
+.cardsContainer, .announcementContainer, .trendingContainer{
+    
+}
+.smallIcon{
+    height: 30px;
+    width: auto;
+    filter: brightness(0) saturate(100%) invert(67%) sepia(74%) saturate(5285%) hue-rotate(316deg) brightness(96%) contrast(101%);
+    cursor: pointer;
+}
+.midIcon{
+    height: 50px;
+    width: auto;
+}
+.bigIcon{
+    height: 70px;
+    width: auto;
+}
+.container{
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1.25fr;
+    overflow: hidden;
+    position: relative;
+}
+.container > *{
+    min-height: 0
+}
+.sidebar{
+    background-color: #0F0F17FF;
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.innerSidebar{
+    position: fixed;
+}
+.mainTitle{
+    display: flex;
+    margin-bottom: 3rem;
+    gap: 1.5rem;
+}
+.upSidebar{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+}
+.downSidebar{
+    display: flex;
+    flex-direction: column;
+}
+.navBlock{
+    display: flex;
+    font-size: 1.5rem;
+    gap: 1rem;
+    margin: 1rem;
+    margin-left: 0.1rem;
+    cursor: pointer;
+}
+.navBlock:hover{
+    color: var(--mainColor);
+}
+.gridLogo{
+    height: 3rem;
+    width: 3rem;
+    display: grid;
+    grid-template: 1fr 1fr 1fr / 1fr 1fr;
+    gap: 5px;
+}
+.logoComponent1, .logoComponent2, .logoComponent3, .logoComponent4{
+    background-color: var(--mainColor);
+}
+.logoComponent1{
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+}
+.logoComponent2{
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+.logoComponent3{
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+}
+.logoComponent4{
+    grid-column: 2 / 3;
+    grid-row: 2 / 4;
+}
+.header{
+    grid-column: 2 / 4;
+    grid-row: 1 / 2;
+    background-color: var(--lighterColor);
+    display: grid;
+    grid-row: 1fr 1fr;
+}
+.upperHeader{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+.leftUpperHeader{
+    margin-left: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+.searchbar{
+    background-color: var(--darkerColor);
+    border-radius: 5rem;
+    border: #684E5BFF 2px solid;
+    color: var(--fontColor);
+    padding: 0.3rem 0;
+    padding-left: 2rem;
+    padding-right: 30rem;
+    font-size: 1.25rem;
+}
+.searchbar:hover, .searchbar:focus{
+    outline: none;
+    border: var(--mainColor) 2px solid;
+}
+.rightUpperHeader{
+    margin-right: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+}
+.rightUpperHeader > .pfp{
+    margin-left: 2rem;
+    margin-right: 1rem;
+    border: 2px solid var(--mainColor);
+}
+.rightUpperHeader > .pfp:hover{
+    box-shadow: 0 4px 12px rgba(246,98,110,0.4);
+}
+.pfp{
+    border-radius: 50%;
+}
+.lowerHeader{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+.leftLowerHeader{
+    margin-left: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.welcomeMsg{
+    font-size: 1rem;
+}
+.welcomeMsg2{
+    font-size: 1.5rem;
+}
+.rightLowerHeader{
+    margin-right: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+}
+.rightLowerHeader > button{
+    font-size: 1.2rem;
+    border-radius: 50px;
+    background-color: var(--mainColor);
+    color: var(--fontColor);
+    padding: 0.5rem 1.5rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.rightLowerHeader > button:hover{
+    transform: translateY(-1px); 
+    box-shadow: 0 4px 12px rgba(246,98,110,0.4);
+}
+.rightLowerHeader > button:active{
+    background-color: rgb(193, 73, 83);
+}
+.cards{
+    grid-column: 2 / 3;
+    grid-row: 2 / 4;
+    padding-top: 2rem;
+    padding-bottom: 10rem;
+}
+.cards > h2{
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+.cardsContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
+    grid-auto-rows: auto;
+    gap: 2rem;
+    padding: 0rem 2rem;
+}
+.card{
+    background-color: var(--lighterColor);
+    background-image: linear-gradient(
+        to right,
+        var(--mainColor) 0%,
+        var(--mainColor) 2%,
+        transparent 2%,
+        transparent 100%
+    );
+    padding: 2rem;
+    border-radius: 10px;
+    min-height: 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover{
+    outline: 1px solid var(--mainColor);
+    
+}
+.cardIcons{
+    align-self: flex-end;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 5rem;
+}
+.card > div{
+    color: var(--fontAccent);
+}
+.announcements{
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+}
+.announcements > h2{
+    margin-top: 2rem;
+    margin-bottom: 1rem
+}
+.announcementContainer{
+    background-color: var(--lighterColor);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    align-items: center;
+    border-radius: 10px;
+    margin-right: 3rem;
+}
+.anBox{
+    display: flex;
+    gap: 1rem;
+}
+h3{
+    color: var(--fontColor);
+}
+.announcementContainer > div > div{
+    color: var(--fontAccent);
+}
+.line{
+    margin-top: 1.25rem;
+}
+.trending{
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+    padding-bottom: 15rem;
+}
+.trending > h2{
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+.trendingContainer{
+    color: var(--fontAccent);
+    gap: 1rem;
+    background-color: var(--lighterColor);
+    padding: 2rem;
+    font-size: 1rem;
+    margin-right: 3rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.trendSubCont{
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    align-items: start;
+}
+.trendIcon{
+    border-radius: 50%;
+    height: 70px;
+    width: auto;
+}
+.trendAppName{
+    color: var(--fontColor);
+    font-size: 1.3rem;
+}
+.trending > h2, .announcements > h2, .cards > h2{
+    font-size: 1.75rem;
+
+}
+.longText{
+    line-height: 1.4;
+}
+.messageIcon{
+    transform: scaleX(-1);
+}
