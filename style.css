@@ -61,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Manrope";
     font-weight: bold;
     --darkerColor: rgb(22, 22, 31);
-    --lighterColor: #1D1D29FF;
+    --lighterColor: rgb(30, 30, 42);
 }
 html, body{
     height: 100vh;
@@ -71,9 +71,6 @@ html, body{
 }
 .cards, .announcements, .trending{
     background-color: var(--darkerColor);
-}
-.cardsContainer, .announcementContainer, .trendingContainer{
-    
 }
 .smallIcon{
     height: 30px;
@@ -93,7 +90,6 @@ html, body{
     min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr 3fr 1.25fr;
-    overflow: hidden;
     position: relative;
 }
 .container > *{
@@ -168,6 +164,10 @@ html, body{
     background-color: var(--lighterColor);
     display: grid;
     grid-row: 1fr 1fr;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 0 8px rgba(255, 60, 110, 0.15);
 }
 .upperHeader{
     display: flex;
@@ -260,7 +260,7 @@ html, body{
     grid-column: 2 / 3;
     grid-row: 2 / 4;
     padding-top: 2rem;
-    padding-bottom: 10rem;
+    padding-bottom: 3rem;
 }
 .cards > h2{
     margin-left: 2rem;
@@ -288,10 +288,10 @@ html, body{
     min-width: 0;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 0 8px rgba(255, 60, 109, 0.041);
 }
 .card:hover{
-    outline: 1px solid var(--mainColor);
-    
+    transform: translateY(-7px);
 }
 .cardIcons{
     align-self: flex-end;
@@ -319,6 +319,7 @@ html, body{
     align-items: center;
     border-radius: 10px;
     margin-right: 3rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 4px rgba(255, 60, 110, 0.1);
 }
 .anBox{
     display: flex;
@@ -336,7 +337,7 @@ h3{
 .trending{
     grid-column: 3 / 4;
     grid-row: 3 / 4;
-    padding-bottom: 15rem;
+    padding-bottom: 3rem;
 }
 .trending > h2{
     margin-top: 3rem;
@@ -347,24 +348,34 @@ h3{
     gap: 1rem;
     background-color: var(--lighterColor);
     padding: 2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     font-size: 1rem;
-    margin-right: 3rem;
+    margin-right: 4rem;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 4px rgba(255, 60, 110, 0.1);
 }
 .trendSubCont{
     display: flex;
     gap: 1.5rem;
     justify-content: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     align-items: start;
 }
 .trendIcon{
     border-radius: 50%;
     height: 70px;
     width: auto;
+    cursor: pointer;
+}
+.trendIcon:hover{
+    outline: var(--mainColor) 2px solid;
+}
+.trendAppName:hover{
+    color: var(--mainColor);
 }
 .trendAppName{
     color: var(--fontColor);
@@ -372,11 +383,35 @@ h3{
 }
 .trending > h2, .announcements > h2, .cards > h2{
     font-size: 1.75rem;
-
+}
+.trendText{
+    cursor: pointer;
 }
 .longText{
     line-height: 1.4;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
 }
 .messageIcon{
     transform: scaleX(-1);
 }
+.circle{
+    cursor: pointer;
+}
+.hoverSmallIcon:hover{
+    transform: translateY(-2px);
+}
+.card:hover h3{
+    color: var(--mainColor);
+}
+.announcmentHeader:hover{
+    color: var(--mainColor);
+}
+.announcmentHeader{
+    cursor: pointer;
+}
+/*eclipse long text, not responsive zoom*/
